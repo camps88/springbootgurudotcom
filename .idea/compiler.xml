@@ -6,13 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ecomdashboard" />
         <module name="getrestendpoint" />
         <module name="postrestendpoint" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ecomdashboard" target="11" />
       <module name="getrestendpoint" target="1.8" />
       <module name="postrestendpoint" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ecomdashboard" options="-parameters" />
+    </option>
   </component>
 </project>

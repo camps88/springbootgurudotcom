@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ecomdashboard/ecomdashboard.iml" filepath="$PROJECT_DIR$/ecomdashboard/ecomdashboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/getrestendpoint/getrestendpoint.iml" filepath="$PROJECT_DIR$/getrestendpoint/getrestendpoint.iml" />
       <module fileurl="file://$PROJECT_DIR$/postrestendpoint/postrestendpoint.iml" filepath="$PROJECT_DIR$/postrestendpoint/postrestendpoint.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springbootgurudotcom.iml" filepath="$PROJECT_DIR$/.idea/springbootgurudotcom.iml" />
