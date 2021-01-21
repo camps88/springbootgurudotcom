@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html
-        xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -40,7 +39,8 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-shopping-cart"></i>
                         </div>
-                        <div class="mr-5">123 New Orders!</div>
+                        <div class="mr-5" th:text="${oc.newOrders}"></div>
+                        <div>New Orders!</div>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,8 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-dollar"></i>
                         </div>
-                        <div class="mr-5">$45000.00 Revenue this Month</div>
+                        <div class="mr-5" th:text="${oc.revenue}"></div>
+                        <div>$ Revenue this Month</div>
                     </div>
                 </div>
             </div>
@@ -60,7 +61,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-ship"></i>
                         </div>
-                        <div class="mr-5">100 Order Shipped</div>
+                        <div class="mr-5" th:text="${oc.shipped}"></div><div> Order Shipped</div>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-support"></i>
                         </div>
-                        <div class="mr-5">13 Returns Initiated</div>
+                        <div class="mr-5" th:text="${oc.returned}"></div><div> Returns Initiated</div>
                     </div>
                 </div>
             </div>
@@ -111,6 +112,8 @@
                     <div class="card-header">
                         <i class="fa fa-pie-chart"></i> Best Seller Category
                     </div>
+                    <input type="hidden" th:id="bsLabels" th:value="${bs.categoryNames}"></input>
+                    <input type="hidden" th:id="bsPercentages" th:value="${bs.categoryPercentages}"></div>
                     <div class="card-body">
                         <canvas id="myPieChart" width="100%" height="70"></canvas>
                     </div>
@@ -126,6 +129,8 @@
             <div class="card-header">
                 <i class="fa fa-area-chart"></i> Order Received
             </div>
+            <input type="hidden" th:id="orLabels" th:value="${or.datesReceived}"></input>
+            <input type="hidden" th:id="orValues" th:value="${or.ordersReceived}"></div>
             <div class="card-body">
                 <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>

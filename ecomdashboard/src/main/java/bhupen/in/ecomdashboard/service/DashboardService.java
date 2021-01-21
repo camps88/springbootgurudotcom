@@ -12,9 +12,9 @@ public interface DashboardService {
 
     HashMap<String,Object> getTodayRevenueDash();
 
-    List<ProductCategory> getBestCategory();
+    HashMap<String, Object> getProductCategories();
 
-    List<OrderRecieved> getAllOrderRecieved();
+    HashMap<String, Object> getAllOrderRecieved();
 
     List<OrderCollectionStatus> getOrderCollection();
 

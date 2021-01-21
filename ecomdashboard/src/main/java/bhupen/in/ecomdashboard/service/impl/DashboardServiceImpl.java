@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 /**
  * Created by BhupendraKumar on 7/11/18.
@@ -72,13 +73,38 @@ public class DashboardServiceImpl implements DashboardService {
 
 
     @Override
-    public List<ProductCategory> getBestCategory() {
-        return productCategoryRepository.findByBestCategory(true);
+    public HashMap<String, Object> getProductCategories() {
+        List<ProductCategory> productCategories = productCategoryRepository.findAll();
+        HashMap<String, Object> pieChartValues = new HashMap<>();
+
+        List<String> categoryNames = productCategories.stream()
+                .map(ProductCategory::getCategoryName)
+                .collect(Collectors.toList());
+
+        List<Integer> categoryPercentages =  productCategories.stream()
+                .map(ProductCategory::getPercentage)
+                .collect(Collectors.toList());
+
+        pieChartValues.put("categoryNames", categoryNames);
+        pieChartValues.put("categoryPercentages", categoryPercentages);
+        return pieChartValues;
     }
 
     @Override
-    public List<OrderRecieved> getAllOrderRecieved() {
-        return orderRecievedRepository.findAll();
+    public HashMap<String, Object> getAllOrderRecieved() {
+        List<OrderRecieved> ordersReceived = orderRecievedRepository.findAll();
+        HashMap<String, Object> areaChartValues = new HashMap<>();
+        List<String> dateReceived = ordersReceived.stream()
+                .map(OrderRecieved::getDateReceived)
+                .collect(Collectors.toList());
+
+        List<Integer> orderReceived = ordersReceived.stream()
+                .map(OrderRecieved::getOrderReceived)
+                .collect(Collectors.toList());
+
+        areaChartValues.put("datesReceived", dateReceived);
+        areaChartValues.put("ordersReceived", orderReceived);
+        return areaChartValues;
     }
 
     @Override

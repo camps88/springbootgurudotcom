@@ -19,10 +19,26 @@ public class ThymeleafController {
     public String getDashDetail(Model model) {
 
         /**
+         * Populate Company Order Collection Status
+         */
+        model.addAttribute("oc", dashboardService.getOrderCollection().get(0));
+
+
+        /**
          * Populate Company Revenue Data
          */
 
         model.addAttribute("cr", dashboardService.getTodayRevenueDash());
+
+        /**
+         * Best Seller Category
+         */
+        model.addAttribute("bs", dashboardService.getProductCategories());
+
+        /**
+         * Order Received
+         */
+        model.addAttribute("or", dashboardService.getAllOrderRecieved());
 
         /**
          * Populate the Employees info
